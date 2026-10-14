@@ -1,51 +1,68 @@
 # Pixel Coding
 
-A phone friendly AI coding workspace for Google Pixel 7 Pro using GitHub Codespaces and Gemini CLI.
+A phone friendly AI coding workspace for the Google Pixel 7 Pro. The editor and tools run in GitHub Codespaces, while the phone is used to control them in Chrome.
 
-## What this setup does
+## What is already configured
 
-- Runs the coding environment in GitHub Codespaces, not on the phone.
-- Installs Gemini CLI in the Codespace.
-- Uses Google account sign in for Gemini CLI. Free access has usage limits and is not unlimited.
-- Keeps project files in this GitHub repository.
+- A Codespaces development container based on Node.js 22.
+- Automatic installation of project dependencies and Gemini CLI when the Codespace is created.
+- `GEMINI.md` instructions telling the coding agent how to work safely in this repository.
+- A small mobile first starter page built with Vite, HTML, CSS, and JavaScript.
+- Port forwarding for the live development preview on port 5173.
 
 ## Start on your phone
 
-1. Open https://github.com/zakshub/pixelcoding
+1. Open https://github.com/zakshub/pixelcoding in Chrome and sign in to GitHub.
 2. Tap the green **Code** button.
-3. Open the **Codespaces** tab.
+3. Select **Codespaces**.
 4. Tap **Create codespace on main**.
-5. Wait for the browser editor to open.
+5. Wait for the browser editor to load and for setup to finish. The first setup may take several minutes.
 6. Open **Terminal → New Terminal**.
-7. Run:
+7. Start the AI coding agent by running:
 
 ```bash
 gemini
 ```
 
-8. Choose **Sign in with Google** and follow the login instructions shown in the terminal. If a browser sign in page does not open automatically, follow the URL and code shown by the CLI.
-9. When Gemini asks for permission to edit files or run commands, review the request before allowing it.
+8. Follow the sign in instructions shown by Gemini CLI. Choose Google account sign in if it is offered. If the free tier is unavailable for your account or region, stop and do not enable paid billing.
+9. After the agent opens, ask it to inspect the repository and follow `GEMINI.md`.
 
-## First test prompt
+## Start the app preview
 
-Paste this into Gemini CLI:
+Open a second terminal using **Terminal → New Terminal**, then run:
+
+```bash
+npm run dev -- --host 0.0.0.0
+```
+
+Open the **Ports** panel and tap the forwarded port 5173 link to view the app. If it does not open automatically, use the local address shown in the terminal or the forwarded port link.
+
+## First instruction for Gemini CLI
+
+Paste this into the Gemini CLI session:
 
 ```text
-Inspect this repository. Create a simple responsive expense tracker web app using plain HTML, CSS, and JavaScript. Add expenses, categories, delete actions, and monthly totals. Keep the design clean and light. Test the main interactions, explain what you changed, and do not deploy anything or add paid APIs.
+Read GEMINI.md and inspect the existing project before editing. Improve this starter only if needed, then build a simple expense tracker with add and delete actions, categories, and monthly totals. Keep the design clean, light, and mobile friendly. Run npm run build, fix errors, and explain what changed. Do not deploy, use paid APIs, or commit and push without asking me first.
 ```
 
 ## Save changes to GitHub
 
-After Gemini edits the files, inspect the changes in the Source Control panel. Commit and push the changes to this repository. Do not paste a GitHub personal access token into chat or source files.
+Use the Source Control panel in the browser editor to review changed files, enter a commit message, commit, and push. Only push after reviewing the changes. Never paste a GitHub personal access token, password, or API key into the chat or source files.
 
 ## Free tier limits
 
-GitHub Codespaces has a monthly free compute and storage quota on personal accounts. Gemini CLI offers a free tier for eligible personal Google accounts, but usage is limited and can change. Neither service is unlimited.
+This setup avoids downloading or running an AI model on the phone, but it is not unlimited or guaranteed to cost zero in every account:
+
+- GitHub Codespaces has monthly compute and storage quotas on eligible personal accounts.
+- Gemini CLI free access depends on Google's current eligibility, account, region, and quota rules.
+- If either service asks you to upgrade or enable billing, do not proceed unless you explicitly choose to pay.
+
+Official details:
 
 - Codespaces billing: https://docs.github.com/en/billing/concepts/product-billing/github-codespaces
 - Gemini CLI authentication: https://geminicli.com/docs/get-started/authentication/
-- Gemini CLI quotas: https://geminicli.com/docs/resources/quota-and-pricing/
+- Gemini CLI quotas and pricing: https://geminicli.com/docs/resources/quota-and-pricing/
 
 ## Important
 
-This repository is a starter workspace. It does not automatically publish a live website. Hosting and deployment can be added after the app works.
+This repository does not automatically publish a public website. First create and test the app. Hosting and deployment can be configured later.
