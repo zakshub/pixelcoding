@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f7f4" />
+    <meta name="description" content="A starter app built from your Pixel phone." />
+    <title>Pixel Coding Starter</title>
+  </head>
+  <body>
+    <main id="app">
+      <section class="hero">
+        <p class="eyebrow">PIXEL CODING WORKSPACE</p>
+        <h1>From idea to working software.</h1>
+        <p class="intro">Your mobile friendly development workspace is ready. Tell your coding agent what you want to build next.</p>
+        <div class="status" role="status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Starter project loaded</span>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>First steps</h2>
+        <ol>
+          <li>Open Gemini CLI in the Codespaces terminal.</li>
+          <li>Describe one small feature you want built.</li>
+          <li>Review the changes and test the preview.</li>
+          <li>Commit and push only after you approve the changes.</li>
+        </ol>
+      </section>
+      <section class="panel prompt-panel">
+        <h2>Try an idea</h2>
+        <p>Use this example as your first instruction to the coding agent.</p>
+        <pre id="starter-prompt">Build a simple expense tracker with add and delete actions, categories, and a monthly total. Keep the design clean, light, and mobile friendly. Run the build and fix any errors.</pre>
+        <button id="copy-prompt" type="button">Copy example prompt</button>
+        <p class="copy-status" id="copy-status" aria-live="polite"></p>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
