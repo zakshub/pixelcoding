@@ -1,7 +1,14 @@
 {
   "name": "Pixel Coding Workspace",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
-  "postCreateCommand": "npm install -g @google/gemini-cli",
+  "postCreateCommand": "npm install && npm install -g @google/gemini-cli",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Pixel Coding app preview",
+      "onAutoForward": "openBrowser"
+    }
+  },
   "customizations": {
     "vscode": {
       "settings": {
